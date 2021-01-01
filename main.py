@@ -1,7 +1,9 @@
-from nltk.tokenize import word_tokenize
-from nltk import pos_tag
+from helpers.extensions import load_multiple_corpus_files
 
-s = 'There is a problem with Traffic Light'
-tokens = word_tokenize(s)  # Generate list of tokens
-tokens_pos = pos_tag(tokens)
-print(tokens_pos)
+train_set = load_multiple_corpus_files(
+    "venv/nltk_data/corpora/brown_hw/Train/*")
+test_set = load_multiple_corpus_files(
+    "venv/nltk_data/corpora/brown_hw/Test/*")
+
+print(train_set)
+print(test_set)
