@@ -1,21 +1,25 @@
 import glob
 import os
-import nltk.data
+# import nltk.data
 
 
 def load_multiple_corpus_files(path):
     read_files = glob.glob(path + '*')
 
-    with open("docs/result", "wb") as outfile:
+    sub_folder = path.split('/')[-2]
+
+    with open(f"docs/{sub_folder}/{sub_folder}.txt", "wb") as outfile:
         for f in read_files:
             with open(f, "rb") as infile:
-                outfile.write(infile.read())
+                for line in infile:
+                    line = line.lower()
+                    outfile.write(line)
 
-    nltk_data = nltk.data.load('docs/result', format='raw')
+    # nltk_data = nltk.data.load('docs/result', format='raw')
 
-    delete_file('docs/result')
+    # delete_file('docs/result')
 
-    return nltk_data
+    # return nltk_data
 
 
 def delete_file(full_path):
