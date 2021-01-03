@@ -17,3 +17,16 @@ def lower_files(parent_path):
             lines = [text.lower() for line in file]
             with open(file, 'w') as out:
                 out.writelines(lines)
+
+
+def load_multiple_corpus_files(path):
+    read_files = glob.glob(path + '*')
+
+    sub_folder = path.split('/')[-2]
+
+    with open(f"docs/{sub_folder}/{sub_folder}.txt", "wb") as outfile:
+        for f in read_files:
+            with open(f, "rb") as infile:
+                for line in infile:
+                    line = line.lower()
+                    outfile.write(line)
