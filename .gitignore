@@ -128,5 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-docs/Test/
-docs/Train/
+docs/brown_hw_lowercase/Test/
+docs/brown_hw_lowercase/Train/
