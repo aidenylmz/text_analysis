@@ -22,9 +22,9 @@ def lower_files(parent_path):
 def load_multiple_corpus_files(path):
     read_files = glob.glob(path + '*')
 
-    sub_folder = path.split('/')[-2]
+    sub_folder = path.split('\\')[-2]
 
-    with open(f"docs/{sub_folder}/{sub_folder}.txt", "wb") as outfile:
+    with open(f"docs/{sub_folder}.txt", "wb") as outfile:
         for f in read_files:
             with open(f, "rb") as infile:
                 for line in infile:
