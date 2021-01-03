@@ -7,16 +7,15 @@ def delete_file(full_path):
         os.remove(full_path)
 
 
-def lower_files(parent_path):
+def lower_files(parent_path, write_path):
     read_files = glob.glob(parent_path + '*')
 
     for file in read_files:
         with open(file, "r") as infile:
+            file_name = os.path.basename(infile.name)
             text = infile.read()
-
-            lines = [text.lower() for line in file]
-            with open(file, 'w') as out:
-                out.writelines(lines)
+        with open(write_path + file_name, 'w') as out:
+            out.write(text.lower())
 
 
 def load_multiple_corpus_files(path):
