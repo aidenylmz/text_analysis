@@ -31,8 +31,8 @@ def load_multiple_corpus_files(path):
                     outfile.write(line)
 
 
-def sort_dict_by_value(dictionary: dict):
-    return {k: v for k, v in sorted(dictionary.items(), key=lambda item: item[1])}
+def sort_dict_by_value(dictionary: dict, descending=True):
+    return {k: v for k, v in sorted(dictionary.items(), key=lambda item: item[1], reverse=descending)}
 
 
 def count_keys_by_value(dictionary, value=1):
